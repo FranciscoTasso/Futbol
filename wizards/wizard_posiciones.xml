@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <record id="posiciones_wizard_form_view" model="ir.ui.view">
+        <field name="name">posiciones_wizard.form</field>
+        <field name="model">posiciones.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Ingresar temporada">
+                <group>
+                    <field name="temporada"/>
+                </group>
+                <footer>
+                        <button name="confirm" type="object" string="Confirmar" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancelar"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+ <act_window
+            id="launch_posiciones_wizard"
+            name="Cargar posiciones"
+            binding_model="futbol.posiciones"
+            res_model="posiciones.wizard"
+            view_mode="form"
+            target="new"/>
+</odoo>
