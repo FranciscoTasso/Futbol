@@ -1,0 +1,44 @@
+<odoo>
+    <record model="ir.ui.view" id="posiciones_form_view">
+        <field name="name">posiciones.form</field>
+        <field name="model">futbol.posiciones</field>
+        <field name="arch" type="xml">
+            <form string="Ingresar nuevo libro">
+                <sheet>
+                    <group string="Posiciones">
+                        <field name="posicion" readonly="1"/>
+                        <field name="equipo" readonly="1"/>
+                        <field name="puntos" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="posiciones_tree_view">
+        <field name="name">posiciones.tree</field>
+        <field name="model">futbol.posiciones</field>
+        <field name="arch" type="xml">
+            <tree string="Posiciones">
+                <field name="posicion"/>
+                <field name="equipo"/>
+                <field name="puntos"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="premier_position_action">
+        <field name="name">Posiciones</field>
+        <field name="res_model">futbol.posiciones</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="main_futbol_menu" name="Futbol"/>
+
+    <menuitem id="premier_menu" name="Premier League" parent="main_futbol_menu"/>
+
+    <menuitem id="posiciones_menu" name="Posiciones" parent="premier_menu" action="premier_position_action"/>
+
+</odoo>
